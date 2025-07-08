@@ -1,0 +1,197 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Mengubah arah flex menjadi kolom untuk footer di bawah */
+    min-height: 100vh;
+}
+
+.main-wrapper {
+    display: flex; /* Menggunakan Flexbox untuk konten utama dan sidebar */
+    justify-content: center;
+    max-width: 1200px; /* Lebar maksimum untuk seluruh layout (artikel + sidebar) */
+    margin: 40px auto;
+    padding: 0 20px; /* Padding samping untuk responsivitas */
+    gap: 30px; /* Jarak antar kolom */
+    flex-grow: 1; /* Memastikan main-wrapper mengisi ruang yang tersedia */
+}
+
+.content-area {
+    flex: 3; /* Artikel mengambil 3 bagian dari 4 total (misalnya 75%) */
+    min-width: 0; /* Penting untuk flex item agar konten tidak meluber */
+}
+
+.sidebar {
+    flex: 1; /* Sidebar mengambil 1 bagian dari 4 total (misalnya 25%) */
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    align-self: flex-start; /* Sidebar menempel di bagian atas */
+    min-width: 250px; /* Lebar minimum untuk sidebar */
+}
+
+.container {
+    /* Gaya container sebelumnya, kini berada di dalam content-area */
+    width: 100%; /* Agar container mengisi penuh content-area */
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #222;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.4em;
+    color: #444;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.caption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9em;
+    color: #777;
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
+
+.author-date {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Styling Sidebar */
+.sidebar-widget h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.sidebar-widget ul {
+    list-style: none; /* Hapus bullet point */
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-widget li {
+    margin-bottom: 10px;
+}
+
+.sidebar-widget a {
+    text-decoration: none;
+    color: #007bff; /* Warna link biru */
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: block; /* Agar link bisa diklik di seluruh area */
+    padding: 5px 0;
+}
+
+.sidebar-widget a:hover {
+    color: #0056b3; /* Warna hover link */
+    text-decoration: underline;
+}
+
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 25px;
+    border-top: 1px solid #e0e0e0;
+    color: #888;
+    font-size: 0.85em;
+    background-color: #fff; /* Memberikan latar belakang pada footer */
+    width: 100%; /* Memastikan footer selebar viewport */
+    box-sizing: border-box;
+}
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 992px) {
+    .main-wrapper {
+        flex-direction: column; /* Mengubah tata letak menjadi kolom pada layar kecil */
+        align-items: center; /* Pusatkan item pada kolom */
+        margin: 20px auto;
+    }
+
+    .content-area {
+        width: 100%; /* Konten mengisi penuh lebar */
+        flex: none; /* Hapus flex grow/shrink */
+    }
+
+    .sidebar {
+        width: 100%; /* Sidebar mengisi penuh lebar */
+        max-width: 800px; /* Batasi lebar sidebar agar sesuai container artikel */
+        margin-top: 30px; /* Beri jarak antara artikel dan sidebar */
+        flex: none; /* Hapus flex grow/shrink */
+    }
+
+    .container {
+        padding: 30px; /* Kurangi padding pada layar kecil */
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 20px; /* Padding lebih kecil lagi untuk perangkat sangat kecil */
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+}
